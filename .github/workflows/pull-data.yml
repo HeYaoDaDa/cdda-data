@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - run: sudo apt-get install jq zsh
-      - run: ./pull-data.sh
+      - run: yarn
+      - run: npx zx pull-data.mjs
       - run: |
           git config --global user.name 'HHG2C Update Bot'
           git config --global user.email 'hhg2c@users.noreply.github.com'
