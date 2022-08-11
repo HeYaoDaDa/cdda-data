@@ -70,7 +70,7 @@ const builds = await within(async () => {
   const builds = []
   for (const tag_name of await glob('*', {onlyDirectories: true})) {
     if (tag_name === "latest") continue
-    const {prerelease, created_at} = await readKey(path.join(process.cwd(), tag_name, 'all.json'), JSONStream.parse(['release']))
+    const {prerelease, created_at} = await readKey(path.join(process.cwd(), tag_name, 'all.json'), ['release'])
     const langs = (await glob(path.join(tag_name, 'lang'))).map(f => path.basename(f, '.json'))
     builds.push({
       build_number: tag_name,
